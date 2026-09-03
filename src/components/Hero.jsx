@@ -198,7 +198,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating Top Right Badge */}
+          
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
