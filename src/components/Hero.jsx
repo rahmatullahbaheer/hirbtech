@@ -170,7 +170,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5 relative"
           >
-            {/* Animated Brand Logo Badge (Floating Top Left) */}
+         
             <motion.div
               animate={{
                 y: [0, -10, 0],
