@@ -5,13 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ChevronDown, Menu, ArrowRight, Code, Smartphone, Monitor, Cpu, Layers, ShoppingBag, Bot, ShieldCheck, Globe } from 'lucide-react';
+import { ChevronDown, Menu, ArrowRight, Code, Smartphone, Monitor, Cpu, Layers, ShoppingBag, Bot, ShieldCheck, Globe, Download } from 'lucide-react';
 import { services } from '@/data/services';
 import MobileMenu from './MobileMenu';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [projectsDropdownOpen, setProjectsDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -151,6 +152,58 @@ export default function Header() {
             >
               Portfolio
             </Link>
+
+            {/* Projects Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setProjectsDropdownOpen(true)}
+              onMouseLeave={() => setProjectsDropdownOpen(false)}
+            >
+              <Link
+                href="/projects"
+                className={`inline-flex items-center px-3.5 py-2 rounded-lg transition-colors ${
+                  pathname.startsWith('/projects') ? 'text-blue-400 bg-blue-500/10' : 'hover:text-white hover:bg-zinc-800/60'
+                }`}
+              >
+                <span>Projects</span>
+                <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${projectsDropdownOpen ? 'rotate-180 text-blue-400' : 'text-zinc-400'}`} />
+              </Link>
+
+              {projectsDropdownOpen && (
+                <div className="absolute top-full left-0 w-64 pt-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="bg-zinc-900/95 backdrop-blur-xl border border-zinc-800 rounded-2xl p-3 shadow-2xl shadow-black/80 flex flex-col gap-1.5">
+                    <Link
+                      href="/projects?tab=web"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-zinc-800/70 transition-colors group/item"
+                    >
+                      <div className="p-2 rounded-lg bg-blue-950/60 border border-blue-800/30 text-blue-400 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors flex-shrink-0">
+                        <Globe className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-zinc-100 group-hover/item:text-blue-400 transition-colors">Web Projects</div>
+                        <div className="text-[11px] text-zinc-400">Websites & web platforms</div>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/projects?tab=mobile"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-zinc-800/70 transition-colors group/item"
+                    >
+                      <div className="p-2 rounded-lg bg-purple-950/60 border border-purple-800/30 text-purple-400 group-hover/item:bg-purple-600 group-hover/item:text-white transition-colors flex-shrink-0">
+                        <Smartphone className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-zinc-100 group-hover/item:text-purple-400 transition-colors">Mobile Apps</div>
+                        <div className="text-[11px] text-zinc-400">Android & iOS applications</div>
+                      </div>
+                    </Link>
+                    <div className="pt-1.5 mt-1 border-t border-zinc-800/80 flex items-center gap-1.5 px-2 text-[11px] text-zinc-500">
+                      <Download className="w-3 h-3" />
+                      PDF downloads available on each project
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
             <Link
               href="/process"
               className={`px-3.5 py-2 rounded-lg transition-colors ${

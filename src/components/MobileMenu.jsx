@@ -3,11 +3,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { X, ChevronDown, ArrowRight } from 'lucide-react';
+import { X, ChevronDown, ArrowRight, Globe, Smartphone, Download } from 'lucide-react';
 import { services } from '@/data/services';
 
 export default function MobileMenu({ isOpen, onClose }) {
   const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [projectsExpanded, setProjectsExpanded] = useState(false);
 
   if (!isOpen) return null;
 
@@ -86,6 +87,48 @@ export default function MobileMenu({ isOpen, onClose }) {
           >
             Portfolio
           </Link>
+
+          {/* Projects Accordion */}
+          <div className="border-b border-zinc-900 py-2">
+            <button
+              onClick={() => setProjectsExpanded(!projectsExpanded)}
+              className="flex items-center justify-between w-full text-lg font-medium text-zinc-200 hover:text-purple-400 py-1"
+            >
+              <span>Projects</span>
+              <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${projectsExpanded ? 'rotate-180 text-purple-400' : 'text-zinc-500'}`} />
+            </button>
+            {projectsExpanded && (
+              <div className="pl-4 mt-2 space-y-3 border-l-2 border-blue-600/30 my-2">
+                <Link
+                  href="/projects"
+                  onClick={onClose}
+                  className="block text-sm font-semibold text-blue-400 hover:underline py-1"
+                >
+                  All Projects →
+                </Link>
+                <Link
+                  href="/projects?tab=web"
+                  onClick={onClose}
+                  className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white py-1"
+                >
+                  <Globe className="w-4 h-4 text-blue-400" />
+                  Web Projects
+                </Link>
+                <Link
+                  href="/projects?tab=mobile"
+                  onClick={onClose}
+                  className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white py-1"
+                >
+                  <Smartphone className="w-4 h-4 text-purple-400" />
+                  Mobile Apps
+                </Link>
+                <div className="flex items-center gap-1.5 text-xs text-zinc-600 py-1">
+                  <Download className="w-3 h-3" />
+                  PDF downloads on each project
+                </div>
+              </div>
+            )}
+          </div>
           <Link
             href="/process"
             onClick={onClose}
