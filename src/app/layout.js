@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd, { getOrganizationSchema } from "@/components/JsonLd";
 import FloatingButtons from "@/components/FloatingButtons";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +22,10 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "RB-Tech | Web, Mobile & Software Development Company",
-    template: "%s | RB-Tech"
+    template: "%s | RB-Tech",
   },
-  description: "RB-Tech builds high-performance websites, web apps, mobile apps, desktop software, SaaS platforms and AI-powered digital solutions for businesses and startups.",
+  description:
+    "RB-Tech builds high-performance websites, web apps, mobile apps, desktop software, SaaS platforms and AI-powered digital solutions for businesses and startups.",
   keywords: [
     "web development company",
     "web development services",
@@ -45,7 +47,7 @@ export const metadata = {
     "software development company",
     "custom software solutions",
     "desktop application development",
-    "business automation software"
+    "business automation software",
   ],
   authors: [{ name: "RB-Tech" }],
   creator: "RB-Tech",
@@ -57,7 +59,8 @@ export const metadata = {
   },
   openGraph: {
     title: "RB-Tech | Web, Mobile & Software Development Company",
-    description: "RB-Tech builds high-performance websites, web apps, mobile apps, desktop software, SaaS platforms and AI-powered digital solutions.",
+    description:
+      "RB-Tech builds high-performance websites, web apps, mobile apps, desktop software, SaaS platforms and AI-powered digital solutions.",
     url: siteUrl,
     siteName: "RB-Tech",
     locale: "en_US",
@@ -66,7 +69,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "RB-Tech | Web, Mobile & Software Development Company",
-    description: "RB-Tech builds high-performance websites, web apps, mobile apps, desktop software, SaaS platforms and AI solutions.",
+    description:
+      "RB-Tech builds high-performance websites, web apps, mobile apps, desktop software, SaaS platforms and AI solutions.",
   },
   robots: {
     index: true,
@@ -74,14 +78,14 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   alternates: {
     canonical: siteUrl,
-  }
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -100,6 +104,7 @@ export default function RootLayout({ children }) {
         <main className="flex-1 w-full">{children}</main>
         <Footer />
         <FloatingButtons />
+        <AnalyticsTracker />
       </body>
     </html>
   );

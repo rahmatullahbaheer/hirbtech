@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lead_101",
+    "name": "Alex Morgan",
+    "email": "alex@techcorp.example",
+    "company": "TechCorp Global",
+    "phone": "+1 (555) 234-5678",
+    "service": "Web Application Development",
+    "budget": "$5,000–$10,000",
+    "timeline": "1–2 months",
+    "projectDescription": "Looking to build a custom SaaS customer portal with Stripe subscription integration and user dashboards.",
+    "status": "New",
+    "internalNotes": "Requested call next Tuesday.",
+    "createdAt": "2026-10-15T10:26:10.422Z"
+  },
+  {
+    "id": "lead_102",
+    "name": "Sarah Jenkins",
+    "email": "s.jenkins@retailpulse.example",
+    "company": "RetailPulse Logistics",
+    "phone": "+1 (555) 876-5432",
+    "service": "Mobile App Development",
+    "budget": "$10,000+",
+    "timeline": "2–4 months",
+    "projectDescription": "Need an offline-first React Native inventory barcode scanner app for iOS and Android field technicians.",
+    "status": "Contacted",
+    "internalNotes": "Sent proposal draft. Awaiting scope review.",
+    "createdAt": "2026-10-12T10:26:10.422Z"
+  },
+  {
+    "id": "lead_103",
+    "name": "David Chen",
+    "email": "david@healthplus.example",
+    "company": "HealthPlus Solutions",
+    "phone": "+1 (555) 345-6789",
+    "service": "AI Development",
+    "budget": "$10,000+",
+    "timeline": "1–2 months",
+    "projectDescription": "Interested in developing a custom RAG search interface to query internal medical PDF documentation securely.",
+    "status": "Qualified",
+    "internalNotes": "Technical discovery meeting scheduled.",
+    "createdAt": "2026-10-09T10:26:10.422Z"
+  }
+]
